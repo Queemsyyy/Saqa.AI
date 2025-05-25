@@ -1,15 +1,34 @@
 const slider = document.querySelector('.slider');
 const beforeImage = document.querySelector('.image-before');
 let isDragging = false;
+let targetX = 50; // Целевая позиция (куда двигается курсор)
+let currentPosition = 50; // Текущая позиция (для обоих элементов)
 
-slider.addEventListener('mousedown', startDrag);
-document.addEventListener('mouseup', stopDrag);
-document.addEventListener('mousemove', drag);
+// Настройки анимации
+const animationSettings = {
+    dragSpeed: 0.3,    // Скорость при перетаскивании
+    releaseSpeed: 0.1, // Скорость при отпускании
+    minDistance: 0.5   // Минимальное расстояние для обновления
+};
 
-slider.addEventListener('touchstart', startDrag);
-document.addEventListener('touchend', stopDrag);
-document.addEventListener('touchmove', drag);
+// Функция плавного перемещения
+function animate() {
+    const speed = isDragging ? animationSettings.dragSpeed : animationSettings.releaseSpeed;
+    const newPosition = currentPosition + (targetX - currentPosition) * speed;
+    
+    // Обновляем только если изменение достаточно заметное
+    if (Math.abs(newPosition - currentPosition) > animationSettings.minDistance) {
+        currentPosition = newPosition;
+        
+        // Синхронное обновление обоих элементов
+        beforeImage.style.clipPath = `inset(0 0 0 ${currentPosition}%)`;
+        slider.style.left = `${currentPosition}%`;
+    }
+    
+    requestAnimationFrame(animate);
+}
 
+// Обработчики событий
 function startDrag(e) {
     e.preventDefault();
     isDragging = true;
@@ -35,9 +54,17 @@ function drag(e) {
     }
 
     x = Math.max(0, Math.min(x, rect.width));
-    const percent = x / rect.width;
-
-    beforeImage.style.clipPath = `inset(0 0 0 ${percent * 100}%)`;
-    
-    slider.style.left = `${percent * 100}%`;
+    targetX = (x / rect.width) * 100;
 }
+
+// Инициализация
+animate();
+
+// Слушатели событий
+slider.addEventListener('mousedown', startDrag);
+document.addEventListener('mouseup', stopDrag);
+document.addEventListener('mousemove', drag);
+
+slider.addEventListener('touchstart', startDrag);
+document.addEventListener('touchend', stopDrag);
+document.addEventListener('touchmove', drag);
