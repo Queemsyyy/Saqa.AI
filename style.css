@@ -57,10 +57,8 @@ body {
     margin-top: 10px;
 }
 
-.container {
-    width: 500px;
-    filter: url(#goo);
-    color: #000;
+.about {
+    position: relative;
 }
 
 .hero-text {
@@ -72,29 +70,41 @@ body {
     font-weight: 500;
     color: #575757;
 }
+
+.container {
+    position: relative;
+    display: inline-block;
+    height: 65px;
+    margin-top: 70px;
+    filter: url(#goo);
+}
         
 .text-btn {
     position: absolute;
     left: 0;
+    width: 300px;
+    height: 65px;
     background-color: white;
     color: black;
     border: none;
     border-radius: 30px;
     cursor: pointer;
     font-size: 16px;
-    z-index: 0;
-    padding: 25px;
-    top: 90px;
-    transition: transform 0.5s ease;
-    transform: translateX(0);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.5s ease;
 }
 
 .btn-text {
     padding: 0;
     margin: 0;
+    width: 243px;
     color: #000;
-    z-index: 99;
+    z-index: 9999;
 }
 
 .glow {
@@ -111,28 +121,32 @@ body {
 
 .arrow-btn {
     position: absolute;
-    right: 140px;
+    margin-left: 320px;
     background-color: #ffffff;
     color: #000000;
     border: none;
-    width: 69px;
-    height: 69px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     cursor: pointer;
     font-size: 27px;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: -1;
-    margin-top: 90px;
+    z-index: 9999;
     text-decoration: none;
     transition: transform 0.8s ease;
     transform: translateX(0);
 }
 
+.arrow {
+    z-index: 10000;
+}
+
 .arrow-btn::after {
     content: "→";
     display: block;
+    z-index: 99999;
 }
 
 .container:hover .arrow-btn {
@@ -149,7 +163,7 @@ body {
     border-radius: 10px;
     transform: translate(-50%, -50%);
     transition: width 0.2s ease;
-    z-index: 0;
+    z-index: -1;
 }
 
 .container:hover .liquid-effect {
@@ -385,6 +399,112 @@ body {
     opacity: 0.9;
 }
 
+.pf-desc {
+    font-size: 32px;
+    font-weight: 500;
+    color: #686868;
+    margin-bottom: 61px;
+    width: 750px;
+}
+
+.prefooter-container {
+    margin: 0 162px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 484px;
+}
+
+.prefooter-container .text-btn, .prefooter-container .arrow-btn {
+    top: 61px;
+}
+
+.pf-container {
+    filter: url(#goo);
+    color: #000;
+    height: 65px;
+    display: inline-block;
+    position: relative;
+    bottom: 69px;
+}
+
+.pf-text-btn {
+    position: absolute;
+    left: 0;
+    width: 185px;
+    height: 65px;
+    background-color: #fff;
+    border-radius: 63px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.pf-btn-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: auto;
+    padding: 0 15px;
+    color: #000;
+}
+
+.pf-arrow-btn {
+    margin-left: 200px;
+    width: 65px;
+    height: 65px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: transform 0.5s ease;
+}
+
+.pf-arrow-btn::after {
+    content: "→";
+    font-size: 27px;
+    color: #000;
+    z-index: 9999;
+}
+
+.pf-liquid-effect {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 20px;
+    background: white;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease;
+    z-index: -9999;
+}
+
+.pf-container:hover .pf-liquid-effect {
+    width: 180px;
+}
+
+.pf-container:hover .pf-arrow-btn {
+    transform: translateX(-35px);
+}
+
+.pf-picture {
+    position: absolute;
+    top: 5000px;
+    left: 970px;
+}
+
+.prefooter-container #zago-big {
+    width: 450px;
+    text-align: left;
+    margin-bottom: 61px;
+}
+
 .gallery-container {
     margin: 175px 163px 0 163px;
 }
@@ -412,6 +532,10 @@ body {
 #zago-medium {
     font-size: 32px;
     font-weight: 500;
+}
+
+footer {
+    margin: 0 44px 17px;
 }
 
 @font-face {
