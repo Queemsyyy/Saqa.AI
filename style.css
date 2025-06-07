@@ -613,28 +613,32 @@ body {
 }
 
 footer {
-    margin: 0 44px 17px;
+    max-width: 1280px;
+    margin: 0 auto 17px;
     display: flex;
     flex-direction: column;
     position: relative;
+    padding: 0 44px;
+    box-sizing: border-box;
 }
 
 .footer-logo {
     width: 231px;
     height: 66px;
     position: absolute;
+    left: 44px;
 }
 
 .sections {
-    display: inline-flex;
-    justify-content: space-between;
+    display: flex;
+    justify-content: flex-end;
     gap: 131px;
-    margin-left: 793px;
+    margin-left: 0;
     margin-bottom: 240px;
+    padding-left: 300px; /* Добавляем отступ слева для логотипа */
 }
 
 .list-link {
-    
     font-size: 20px;
     font-weight: 400;
     text-decoration: none;   
@@ -679,6 +683,7 @@ footer {
     flex-direction: column;
     align-items: center;    
     padding: 0;
+    margin: 0;
 }
 
 .footer-zago {
@@ -701,11 +706,11 @@ footer {
 }
 
 .credits {
-    left: 0;
+    left: 44px;
 }
 
 .copy {
-    right: 0;
+    right: 44px;
     color: #717171;
 }
 
