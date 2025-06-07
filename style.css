@@ -592,10 +592,9 @@ body {
     color: #9F9F9F;
 }
 
-.gallery {
+.gallery-picture {
     width: 100%;
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
 }
 
 .color-base1 {
@@ -884,6 +883,8 @@ footer {
     }
     
     .gallery-picture {
+        width: 100%;
+        height: auto;
         border-radius: 20px;
     }
     
@@ -1057,10 +1058,6 @@ footer {
     
     .liquid-effect {
         height: 15px;
-    }
-    
-    .container:hover .liquid-effect {
-        width: 150px;
     }
     
     .glow {
