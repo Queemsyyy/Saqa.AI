@@ -34,31 +34,72 @@ body {
     text-decoration: none;
     background-color: #10A37F;
     border: solid 1px #00D29E;
+    transition: all 0.3s ease;
+}
+
+.try-button:hover {
+    background-color: #00D29E;
 }
 
 .hero-container {
-    margin: 0px 150px
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between; /* Главное свойство для размещения в конце */
+    align-items: flex-start;
+}
+
+.hero-pic {
+    width: auto;
+    max-width: 700px; /* Чтобы изображение не растягивалось слишком сильно */
+    height: auto    ;
+    max-height: 600px; /* Ограничиваем высоту */
+    border-radius: 20px;
+    object-fit: contain;
+    margin-left: 40px; /* Отступ от текстового блока */
 }
 
 .logo {
-    margin-bottom: 50px;
+    width: 180px;
+    margin-bottom: 30px;
+    display: block;
 }
 
 #zago-big {
     font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
 }
 
-.about .zago-big {
+.about #zago-big {
+    color: #fff;
     width: 600px;
 }
 
-.about .desc {
-    width: 660px;
-    margin-top: 10px;
+.desc {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    max-width: 660px;
+    color: #575757;
 }
 
 .about {
+    flex: 1; /* Занимает доступное пространство */
+    max-width: 600px; /* Ограничиваем ширину текстового блока */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tutorial {
+    flex: 1; /* Занимает оставшееся пространство */
     position: relative;
+    align-self: center; /* Центрируем изображение по вертикали */
 }
 
 .hero-text {
@@ -78,8 +119,9 @@ body {
     margin-top: 70px;
     filter: url(#goo);
     overflow: visible;
+    width: 365px; /* Фиксированная ширина контейнера */
 }
-        
+
 .text-btn {
     position: absolute;
     left: 0;
@@ -111,6 +153,26 @@ body {
     z-index: 4; 
 }
 
+
+.arrow-btn {
+    position: absolute;
+    left: 320px; /* Изменено с 320px на 300px */
+    width: 65px;
+    height: 65px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    text-decoration: none;
+    transition: transform 0.8s ease;
+}
+
 .glow {
     position: absolute;
     width: 1100px;
@@ -121,28 +183,6 @@ body {
     opacity: 0.15;
     bottom: 150px;
     right: 1050px;
-}
-
-.arrow-btn {
-    position: absolute;
-    left: 320px;
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 27px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    text-decoration: none;
-    transition: transform 0.8s ease;
-    transform: translateX(0);
-    z-index: 3;
-    filter: none !important;
 }
 
 .arrow {
@@ -178,23 +218,22 @@ body {
 
 .makeup-container {
     width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: 300px auto 100px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    margin-bottom: 175px;
-    margin-top: 427px;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .image-slider {
     position: relative;
     width: 100%;
-    height: 700px;
+    max-width: 1200px;
+    height: 600px;
     overflow: hidden;
     border-radius: 65px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
     box-shadow: 0 0 175px 0 rgba(16, 163, 126, 10%);
 }
 
@@ -267,13 +306,13 @@ body {
 }
 
 .makeup-text {
-    position: relative;
-    right: 410px;
-    width: 480px;
-    margin-bottom: 20px;
+    width: 100%;
+    max-width: 480px;
     color: #10A37F;
     font-weight: 700;
     font-size: 2rem;
+    position: static;
+    margin-bottom: 30px;
 }
 
 .underimage-text {
@@ -281,7 +320,7 @@ body {
     text-align: center;
     margin-top: 20px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     gap: 10px;
     font-size: 1rem;
@@ -293,30 +332,43 @@ body {
 }
 
 .tutorial-container {
-    margin: 0 206px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
 }
 
-.tutorial-container  #zago-big {   
+.tutorial-container #zago-big {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 60px;
+    width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 78px;
+    flex-wrap: wrap;
 }
 
 .tutorial-container #zago-medium {
-    display: flex;
-    justify-content: center;
+    text-align: center;
     margin-bottom: 83px;
 }
 
 #zago-big > .color-base1 {
+    color: #10A37F;
     margin-left: 10px;
 }
 
 .cards {
     display: flex;
     justify-content: center;
-    gap: 92px;
-    margin-bottom: 80px;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 60px;
+    width: 100%;
 }
 
 .card {
@@ -325,36 +377,28 @@ body {
     background-color: #000000;
     border: 2px solid #10A37F;
     box-shadow: 0 0 60px 0 rgba(16, 163, 127, 20%);
-    padding: 35px;
-    padding-bottom: 50px;
-    width: 440px;
-    height: 325px;
+    padding: 30px;
+    width: 100%;
+    max-width: 380px;
     border-radius: 45px;
-    gap: 39px;
+    gap: 25px;
     transition: all 0.3s ease;
 }
 
 .number {
     color: #10A37F;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 500;
 }
 
 .card-svg {
-    color: #10A37F;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
 }
 
 .tutorial-zago {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 500;
-}
-
-.tutorial {
-    position: absolute;
-    left: 905px;
-    bottom: -30px;
 }
 
 .tutorial-desc {
@@ -378,7 +422,6 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    left: 557px;
     width: 383px;
     height: 73px;
     border-radius: 65px;
@@ -405,23 +448,29 @@ body {
     opacity: 0.9;
 }
 
+.prefooter-container {
+    margin: 0 162px;
+    margin-bottom: 484px;
+}
+
+.pf-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.pf-text {
+    flex: 1;
+    max-width: 600px;
+}
+
 .pf-desc {
     font-size: 32px;
     font-weight: 500;
     color: #686868;
     margin-bottom: 61px;
-    width: 750px;
-}
-
-.prefooter-container {
-    margin: 0 162px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 484px;
-}
-
-.prefooter-container .text-btn, .prefooter-container .arrow-btn {
-    top: 61px;
+    width: 100%;
 }
 
 .pf-container {
@@ -500,30 +549,53 @@ body {
 }
 
 .pf-picture {
-    position: absolute;
-    top: 5000px;
-    left: 970px;
+    max-width: 400px;
+    height: auto;
 }
 
 .prefooter-container #zago-big {
-    width: 450px;
+    width: 100%;
     text-align: left;
     margin-bottom: 61px;
 }
 
 .gallery-container {
-    margin: 175px 163px 0 163px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 100px auto 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .gallery-text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 60px;
+    gap: 30px;
+    margin-bottom: 60px;
+    text-align: center;
+    width: 100%;
+}
+
+.gallery-container #zago-big {
+    font-size: 48px;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .gallery-text > p {
     color: #9F9F9F;
+}
+
+.gallery {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .color-base1 {
@@ -641,7 +713,664 @@ footer {
     color: #717171;
 }
 
+@media (max-width: 1280px) {
+    .nav-bar {
+        padding: 40px 80px 80px 0;
+        gap: 30px;
+    }
+    
+    .try-button {
+        padding: 15px 35px;
+    }
+    .hero-container {
+        padding: 40px 40px;
+    }
+    .hero-pic {
+        max-width: 45%;
+    }
+    #zago-big {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .about #zago-big {
+        width: 400px;
+    }
+    .desc {
+        font-size: 20px;
+        width: 400px;
+    }
+    .hero-pic {
+        max-width: 500px;
+    }
+    .makeup-container {
+        width: 100%;
+        max-width: 740px;
+        margin: 150px auto;
+        padding: 0 20px;
+        margin-top: 175px;
+    }
+    .makeup-text {
+        right: 260px;
+    }
+    .tutorial-container #zago-big {
+        font-size: 48px;
+    }
+    .cards {
+        gap: 40px;
+    }
+    .card {
+        position: relative;
+    }
+    .tutorial-zago {
+        font-size: 24px;
+    }
+    .tutorial-desc {
+        font-size: 14px;
+    }
+    .card-svg {
+        width: 30px;
+    }
+    .gallery {
+        margin: 0 80px;
+    }
+    .gallery-picture {
+        width: 900px;
+        height: 900px;
+    }
+    .prefooter-container {
+        margin: 0 80px;
+        margin-bottom: 400px;
+    }
+    
+    .pf-content-wrapper {
+        gap: 30px;
+    }
+    
+    .pf-desc {
+        font-size: 28px;
+        margin-bottom: 50px;
+    }
+    .pf-text-btn {
+        margin-top: 120px;
+    }
+    .pf-arrow-btn {
+        margin-top: 120px;
+    }
+    .pf-picture {
+        max-width: 350px;
+    }
+    footer {
+        margin: 0 30px 17px;
+    }
+    .sections {
+        margin-left: 400px;
+        gap: 80px;
+        margin-bottom: 180px;
+    }
+    
+    .footer-logo {
+        width: 200px;
+        height: auto;
+    }
+    
+    .footer-zago {
+        font-size: 24px;
+    }
+    
+    .list-link {
+        font-size: 18px;
+    }
+}
 
+@media (max-width: 1024px) {
+    .nav-bar {
+        padding: 30px 40px 60px 0;
+        gap: 25px;
+    }
+    
+    .nav-link {
+        font-size: 15px;
+        padding: 12px 0;
+    }
+    
+    .try-button {
+        padding: 12px 30px;
+        margin-left: 5px;
+    }
+    .hero-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-pic {
+        max-width: 80%;
+        margin: 40px 0 0 0;
+    }
+    .about {
+        max-width: 100%;
+    }
+    .tutorial-container {
+        padding: 50px 20px;
+    }
+    #zago-big {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }   
+    .card {
+        max-width: 320px;
+        padding: 25px;
+    }
+    .tutorial-zago {
+        font-size: 24px;
+    }
+    .gallery-container {
+        margin-top: 60px;
+        padding: 0 20px;
+    }
+    
+    .gallery-container #zago-big {
+        font-size: 28px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #zago-big > .color-base1 {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+    
+    .gallery-container #zago-medium {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+    
+    .gallery-picture {
+        border-radius: 20px;
+    }
+    
+    #zago-big {
+        font-size: 36px;
+    }
+    
+    #zago-medium {
+        font-size: 20px;
+        max-width: 500px;
+    }
+    
+    .gallery-text {
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    .prefooter-container {
+        margin: 0 40px;
+        margin-bottom: 300px;
+    }
+    .pf-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    .pf-text {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .prefooter-container #zago-big {
+        text-align: center !important;
+    }
+    .pf-desc {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+    .pf-container {
+        margin: 0 auto;
+        bottom: 0;
+        margin-top: 30px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    .pf-text-btn {
+        position: relative;
+        left: auto;
+    }
+    .pf-arrow-btn {
+        margin-left: 20px;
+    }
+    .pf-picture {
+        max-width: 600px;
+        margin-top: 50px;
+    }
+    footer {
+        margin: 0 20px 17px;
+        align-items: center;
+    }
+    
+    .footer-logo {
+        position: static;
+        margin-bottom: 40px;
+    }
+    
+    .sections {
+        margin-left: 0;
+        gap: 60px;
+        margin-bottom: 120px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .section {
+        width: 45%;
+        margin-bottom: 30px;
+    }
+    
+    .footer-zago {
+        font-size: 22px;
+    }
+    
+    .list-link {
+        font-size: 16px;
+    }
+    
+    .credits, .copy {
+        position: static;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    .nav-bar {
+        padding: 25px 20px 40px 0;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .nav-link {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+    
+    .try-button {
+        padding: 10px 25px;
+        margin-left: 0;
+        text-align: center;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    
+    .hero-container {
+        padding: 30px 20px;
+    }
+    .hero-pic {
+        max-width: 100%;
+        max-height: 500px;
+    }
+    
+    .logo {
+        width: 150px;
+        margin-bottom: 20px;
+    }
+    
+    #zago-big {
+        font-size: 28px;
+        padding: 0 10px;
+        line-height: 1.3;
+    }
+    
+    .desc {
+        font-size: 16px;
+        padding: 0 15px;
+        margin-bottom: 30px;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 365px;
+        height: 55px;
+        margin-top: 40px;
+    }
+    
+    .text-btn {
+        width: calc(100% - 65px);
+        height: 55px;
+        font-size: 14px;
+    }
+    
+    .btn-text {
+        width: auto;
+        padding: 0 15px;
+        font-size: 14px;
+    }
+    
+    .arrow-btn {
+        width: 55px;
+        height: 55px;
+        left: calc(100% - 55px);
+        font-size: 24px;
+    }
+    
+    .liquid-effect {
+        height: 15px;
+    }
+    
+    .container:hover .liquid-effect {
+        width: 150px;
+    }
+    
+    .glow {
+        width: 600px;
+        height: 600px;
+        bottom: 100px;
+        right: 300px;
+    }
+    
+    .makeup-container {
+        margin-top: 300px;
+        padding: 0 20px;
+        margin-bottom: 100px;
+    }
+    
+    .image-slider {
+        height: 400px;
+        border-radius: 30px;
+    }
+    
+    .makeup-text {
+        right: 0;
+        width: 100%;
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .underimage-text {
+        justify-content: center;
+    }
+    
+    .tutorial-container {
+        padding: 40px 15px;
+    }
+    
+    .tutorial-container #zago-big {
+        font-size: 28px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+     #zago-big > .color-base1 {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+    
+    .cards {
+        gap: 20px;
+    }
+    
+    .card {
+        max-width: 80%;
+    }
+    
+    .tutorial-container #zago-medium {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .member-button {
+        left: 0;
+        width: 300px;
+        margin-bottom: 50px;
+    }
+    
+    .gallery-container {
+        margin: 100px 20px 0;
+    }
+    
+    .gallery-text {
+        gap: 30px;
+    }
+    
+    .gallery-text #zago-big {
+        font-size: 28px;
+        text-align: center;
+    }
+    
+    .gallery-text #zago-medium {
+        font-size: 20px;
+        text-align: center;
+    }
+    
+    .gallery-picture {
+        width: 100%;
+        height: auto;
+        margin-top: 30px;
+    }
+    
+    .prefooter-container {
+        margin: 0 20px;
+        margin-bottom: 200px;
+    }
+    
+    .pf-content-wrapper {
+        gap: 20px;
+    }
+    
+    .pf-desc {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .pf-container {
+        height: 55px;
+    }
+    
+    .pf-text-btn {
+        width: 160px;
+        height: 55px;
+    }
+
+    .pf-btn-text {
+        font-size: 14px;
+    }
+
+    .pf-btn-text svg {
+        width: 25px;
+    }
+    
+    .pf-arrow-btn {
+        width: 55px;
+        height: 55px;
+        margin-left: 15px;
+    }
+    
+    .pf-picture {
+        max-width: 400px;
+    }
+    
+    .sections {
+        gap: 40px;
+        margin-bottom: 80px;
+    }
+
+    .section {
+        width: 100%;
+    }
+
+    .footer-zago {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .list-link {
+        font-size: 15px;
+        margin-top: 12px;
+    }
+    
+    .footer-logo {
+        width: 180px;
+        margin-bottom: 30px;
+    }
+    
+    .section ul {
+        align-items: center;
+    }
+    
+    .credits, .copy {
+        position: relative;
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    .tutorial {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .hero-pic {
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: auto;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-bar {
+        padding: 20px 15px 30px 0;
+        gap: 10px;
+        justify-content: center;
+    }
+    
+    .nav-link {
+        font-size: 13px;
+        padding: 8px 0;
+    }
+    
+    .try-button {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+    .hero-container {
+        padding: 20px 15px;
+    }
+
+    .hero-pic {
+        max-height: 400px;
+        border-radius: 15px;
+    }
+    
+    #zago-big {
+        font-size: 24px;
+    }
+    
+    .desc {
+        font-size: 14px;
+    }
+    
+    .container {
+        height: 50px;
+    }
+    
+    .text-btn {
+        height: 50px;
+    }
+    
+    .arrow-btn {
+        width: 50px;
+        height: 50px;
+        left: calc(100% - 50px);
+        font-size: 20px;
+    }
+    
+    .image-slider {
+        height: 300px;
+    }
+    
+    .tutorial-container #zago-big,
+    .prefooter-container #zago-big,
+    .gallery-text #zago-big {
+        font-size: 24px;
+    }
+    
+    .tutorial-container #zago-medium,
+    .gallery-text #zago-medium {
+        font-size: 18px;
+    }
+
+    .gallery-container #zago-big {
+        font-size: 24px;
+    }
+    
+    .gallery-container #zago-medium {
+        font-size: 14px;
+    }
+    
+    .gallery-text {
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .prefooter-container {
+        margin: 0 15px;
+        margin-bottom: 150px;
+    }
+    
+    .prefooter-container #zago-big {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    
+    .pf-desc {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+    
+    .pf-container {
+        height: 50px;
+    }
+    
+    .pf-text-btn {
+        width: 140px;
+        height: 50px;
+    }
+    
+    .pf-arrow-btn {
+        width: 50px;
+        height: 50px;
+        margin-left: 10px;
+    }
+    
+    .pf-arrow-btn::after {
+        font-size: 22px;
+    }
+    
+    .pf-container:hover .pf-arrow-btn {
+        transform: translateX(-30px);
+    }
+    
+    .pf-picture {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 360px) {
+    .about #zago-big {
+        max-width: 300px;
+    }
+    .about .desc {
+        max-width: 300px;
+    }
+}
 
 @font-face {
     font-family: 'SF';

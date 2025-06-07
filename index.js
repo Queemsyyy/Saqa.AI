@@ -52,16 +52,40 @@ document.addEventListener('DOMContentLoaded', function() {
         targetX = (x / rect.width) * 100;
     }
 
+    // Инициализация анимации
     animate();
 
+    // Обработчики для мыши
     slider.addEventListener('mousedown', startDrag);
     document.addEventListener('mouseup', stopDrag);
     document.addEventListener('mousemove', drag);
 
+    // Обработчики для тач-устройств
     slider.addEventListener('touchstart', startDrag, {passive: false});
     document.addEventListener('touchend', stopDrag);
     document.addEventListener('touchmove', drag, {passive: false});
 
+    // Меню для мобильных устройств
+    let menuBtn = document.querySelector('.menu-btn');
+    let menu = document.querySelector('.menu');
+
+    if (menuBtn && menu) {
+        menuBtn.addEventListener('click', function() {
+            menuBtn.classList.toggle('active');
+            menu.classList.toggle('active');
+        });
+    }
+
+    // Закрытие меню при клике на пункт
+    const menuItems = document.querySelectorAll('.menu li');
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            menuBtn.classList.remove('active');
+            menu.classList.remove('active');
+        });
+    });
+
+    // Адаптация карточек для тач-устройств
     if ('ontouchstart' in window) {
         const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
