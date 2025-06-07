@@ -1248,7 +1248,7 @@ footer {
     .nav-bar {
         padding: 20px 15px 30px 0;
         gap: 10px;
-        justify-content: start;
+        justify-content: center;
     }
     
     .nav-link {
@@ -1361,9 +1361,6 @@ footer {
     .pf-picture {
         max-width: 300px;
     }
-}
-
-@media (max-width: 360px) {
     .about #zago-big {
         max-width: 300px;
     }
