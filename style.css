@@ -618,27 +618,23 @@ footer {
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: 0 44px;
-    box-sizing: border-box;
 }
 
 .footer-logo {
     width: 231px;
     height: 66px;
     position: absolute;
-    left: 44px;
 }
 
 .sections {
-    display: flex;
-    justify-content: flex-end;
-    gap: 131px;
-    margin-left: 0;
+    display: inline-flex;
+    justify-content: space-between;
+    margin-left: 400px;
     margin-bottom: 240px;
-    padding-left: 300px; /* Добавляем отступ слева для логотипа */
 }
 
 .list-link {
+    
     font-size: 20px;
     font-weight: 400;
     text-decoration: none;   
@@ -683,7 +679,6 @@ footer {
     flex-direction: column;
     align-items: center;    
     padding: 0;
-    margin: 0;
 }
 
 .footer-zago {
@@ -706,11 +701,11 @@ footer {
 }
 
 .credits {
-    left: 44px;
+    left: 0;
 }
 
 .copy {
-    right: 44px;
+    right: 0;
     color: #717171;
 }
 
@@ -1253,7 +1248,7 @@ footer {
     .nav-bar {
         padding: 20px 15px 30px 0;
         gap: 10px;
-        justify-content: center;
+        justify-content: start;
     }
     
     .nav-link {
